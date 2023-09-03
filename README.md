@@ -42,13 +42,13 @@ npm test
 
 아래의 7가지 기능 요구 사항을 모두 해결해야 한다.
 
-1. [문제 1](docs/PROBLEM1.md)
-2. [문제 2](docs/PROBLEM2.md)
-3. [문제 3](docs/PROBLEM3.md)
-4. [문제 4](docs/PROBLEM4.md)
-5. [문제 5](docs/PROBLEM5.md)
-6. [문제 6](docs/PROBLEM6.md)
-7. [문제 7](docs/PROBLEM7.md)
+1. 📝 [문제 1](docs/PROBLEM1.md) ✅ [풀이 1](/src/problem1.js)
+2. 📝 [문제 2](docs/PROBLEM2.md) ✅ [풀이 2](/src/problem2.js)
+3. 📝 [문제 3](docs/PROBLEM3.md) ✅ [풀이 3](/src/problem3.js)
+4. 📝 [문제 4](docs/PROBLEM4.md) ✅ [풀이 4](/src/problem4.js)
+5. 📝 [문제 5](docs/PROBLEM5.md) ✅ [풀이 5](/src/problem5.js)
+6. 📝 [문제 6](docs/PROBLEM6.md) ✅ [풀이 6](/src/problem6.js)
+7. 📝 [문제 7](docs/PROBLEM7.md) ✅ [풀이 7](/src/problem7.js)
 
 ---
 
