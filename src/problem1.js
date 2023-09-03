@@ -14,9 +14,10 @@ function problem1(pobi, crong) {
   for (let i = 0; i < pobi.length; i++) {
     const page = pobi[i];
     // 페이지 번호의 각 자리 숫자를 더한 값을 계산
-    const pageSum = String(page).split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+    const pageDigits = String(page).split('');
+    const pageSum = pageDigits.reduce((acc, digit) => acc + parseInt(digit), 0);
     // 페이지 번호의 각 자리 숫자를 곱한 값을 계산
-    const pageProduct = String(page).split('').reduce((acc, digit) => acc * parseInt(digit), 1);
+    const pageProduct = pageDigits.reduce((acc, digit) => acc * parseInt(digit), 1);
     // 현재 페이지의 최대값을 pobiMax와 비교하여 가장 큰 값을 pobiMax에 저장
     pobiMax = Math.max(pobiMax, pageSum, pageProduct);
   }
@@ -25,9 +26,10 @@ function problem1(pobi, crong) {
   for (let j = 0; j < crong.length; j++) {
     const page = crong[j];
     // 페이지 번호의 각 자리 숫자를 더한 값을 계산
-    const pageSum = String(page).split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+    const pageDigits = String(page).split('');
+    const pageSum = pageDigits.reduce((acc, digit) => acc + parseInt(digit), 0);
     // 페이지 번호의 각 자리 숫자를 곱한 값을 계산
-    const pageProduct = String(page).split('').reduce((acc, digit) => acc * parseInt(digit), 1);
+    const pageProduct = pageDigits.reduce((acc, digit) => acc * parseInt(digit), 1);
     // 현재 페이지의 최대값을 crongMax와 비교하여 가장 큰 값을 crongMax에 저장
     crongMax = Math.max(crongMax, pageSum, pageProduct);
   }
@@ -43,6 +45,7 @@ function problem1(pobi, crong) {
 }
 
 module.exports = problem1;
+
 
 
 // 풀이 2 ------------------------------------------------
@@ -75,10 +78,20 @@ function isValid(pages) {
 }
 
 function getMaxScore(pages) {
-  const sum = pages.reduce((acc, page) => acc + String(page).split('').reduce((sum, digit) => sum + parseInt(digit), 0), 0);
-  // 페이지 번호의 각 자릿수를 더한 값을 계산하여 누적
-  const product = pages.reduce((acc, page) => acc * String(page).split('').reduce((product, digit) => product * parseInt(digit), 1), 1);
-  // 페이지 번호의 각 자릿수를 곱한 값을 계산하여 누적
+  const sum = pages.reduce((acc, page) => {
+    const pageDigits = String(page).split(''); // 페이지 번호의 각 자릿수 배열로 변환
+    // 각 자릿수를 더한 값을 계산하여 누적
+    const digitSum = pageDigits.reduce((sum, digit) => sum + parseInt(digit), 0);
+    return acc + digitSum; // 더한 값을 누적
+  }, 0);
+
+  const product = pages.reduce((acc, page) => {
+    const pageDigits = String(page).split(''); // 페이지 번호의 각 자릿수 배열로 변환
+    // 각 자릿수를 곱한 값을 계산하여 누적
+    const digitProduct = pageDigits.reduce((product, digit) => product * parseInt(digit), 1);
+    return acc * digitProduct; // 곱한 값을 누적
+  }, 1);
+
   return Math.max(sum, product); // 더한 값과 곱한 값 중 최대값 반환
 }
 
